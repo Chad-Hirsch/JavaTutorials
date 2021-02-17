@@ -12,9 +12,22 @@ public class MySweetProject {
 		names.push("Bobby");
 		names.push("Rex");
 		
-		System.out.println(names.pop()); 
-		System.out.println(names.pop()); 
-		System.out.println(names.pop()); 
+		Iterator<String> it = names.iterator();
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}	
+		System.out.println("\n");
+		
+		for(String s: names) {
+			System.out.println(s);
+		}
+		
+		names.add(2, "Susan");
+		
+		for(String s: names) {
+			System.out.println(s);
+		}
 		
 	} 
 }
