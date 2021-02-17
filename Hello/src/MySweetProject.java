@@ -14,7 +14,7 @@ public class MySweetProject {
 		List<String> students = new ArrayList<String>();
 		
 		while(in.hasNextLine()) {
-			students.add(in.nextLine()); //works now
+			students.add(in.nextLine()); //works now!
 		}
 		
 		for(int i = 0; i<students.size(); i++) {
