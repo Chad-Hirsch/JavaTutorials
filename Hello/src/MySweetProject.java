@@ -1,26 +1,20 @@
 import java.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner; 
+import java.io.*;
+import java.util.*;
 
 public class MySweetProject {
 
-	public static void main(String[] args) throws FileNotFoundException { //method
+	
+	public static void main(String[] args) { //method
 		
-		Scanner in = new Scanner(new File("students.txt")); 
+		LinkedList<String> names = new LinkedList<String>();
+		names.push("Chad");
+		names.push("Bobby");
+		names.push("Rex");
 		
-		List<String> students = new ArrayList<String>();
+		System.out.println(names.pop()); 
+		System.out.println(names.pop()); 
+		System.out.println(names.pop()); 
 		
-		while(in.hasNextLine()) {
-			students.add(in.nextLine()); //works now!
-		}
-		
-		for(int i = 0; i<students.size(); i++) {
-			System.out.println("Name " + students.get(i));
-		}
-		
-		in.close();
 	} 
 }
