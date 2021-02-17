@@ -1,25 +1,24 @@
 import java.util.*;
-import java.io.*; 
+//import java.io.*; 
 
 public class MazeMain {
 
+	static int[][] maze = {
+			{2, 0, 1, 1}, //start in upper right
+			{1, 1, 0, 1},
+			{0, 1, 1, 1}
+	}; 
+	static //0=wall
+	//1=path
+	//2=destination
+	
+	LinkedList<Position> path = new LinkedList<Position>();
 	public static void main(String[] args) {
 		
-		int[][] data = {
-				{4, 6, 8 , 7},
-				{12, 9, 7, 65},
-				{88, 52, 46, 87}
-		};
+		Position p = new Position(3, 0); //start position. 
+		path.push(p); 
 		
-		// System.out.println(data.length); //gives the amount of rows.
-		// System.out.println(data[0].length); // gives the amount of columns. 
-		
-		for(int i = 0; i < data.length; i++) {
-			for(int j = 0; j < data[i].length; j++) {
-				System.out.print(data[i][j] + " ");
-			}
-			System.out.println();
-		}
+		maze[path.peek().y][path.peek().x] = 0;
 		
 	}
 
