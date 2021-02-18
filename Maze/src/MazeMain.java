@@ -8,28 +8,9 @@ import java.util.Scanner;
 
 public class MazeMain {
 	
+	public static void main(String[] args) throws FileNotFoundException{
 		
-	
-	public static void main(String[] args) throws FileNotFoundException {
-		
-		 ArrayList<Maze> mazes = new ArrayList<Maze>(); 
-		
-		Maze m = new Maze();
-		
-		 //Fill list from file:: 
-		Scanner in = new Scanner(new File("mazes.txt"));
-		int rows = Integer.parseInt(in.nextLine());
-		m.maze = new int[rows][];
-		
-		//loop 
-		for(int i = 0; i<rows; i++) {
-			String line = in.nextLine();
-			m.maze[i] = Arrays.stream(line.split(", ")).mapToInt(Integer::parseInt).toArray();
-		}
-		
-		m.start = new Position(Integer.parseInt(in.nextLine()), Integer.parseInt(in.nextLine()));
-		
-		mazes.add(m);
+		 ArrayList<Maze> mazes = readMazes();
 		
 		int i = 0;
 		while(i<mazes.size()) {
@@ -42,10 +23,34 @@ public class MazeMain {
 			}
 			i++;
 		}
-		
-		
 	}
 	
+	private static ArrayList<Maze> readMazes() throws FileNotFoundException {
+		
+		ArrayList<Maze> mazes = new ArrayList<Maze>(); 
+		Scanner in = new Scanner(new File("mazes.txt"));
+		while(in.hasNext()) {
+			//Fill list from file:: 
+			Maze m = new Maze();
+			int rows = Integer.parseInt(in.nextLine());
+			m.maze = new int[rows][];
+			
+			//loop 
+			for(int i = 0; i<rows; i++) {
+				String line = in.nextLine();
+				m.maze[i] = Arrays.stream(line.split(", ")).mapToInt(Integer::parseInt).toArray();
+			}
+			
+			m.start = new Position(Integer.parseInt(in.nextLine()), Integer.parseInt(in.nextLine()));
+			
+			in.nextLine(); //Throw out the extra space between the mazes. 
+			
+			mazes.add(m);
+		}
+		in.close();
+		return mazes;
+	}
+
 	private static boolean solveMaze(Maze m) {
 		Position p = m.start;
 		m.path.push(p); 
