@@ -5,7 +5,6 @@ public class BinaryGap {
 	public static void main(String[] args) {
 		
 		int result = solution(2147413641);
-		System.out.println(result);
 
 	}
 	
@@ -15,10 +14,6 @@ public class BinaryGap {
         
         String[] gaps = binary.replaceAll("0+$", "").split("1"); 
         
-        
-        for(int i=0; i<gaps.length; i++) {
-        System.out.println(gaps[i]);
-        }
         
         int maxGap = 0;
 
