@@ -3,13 +3,17 @@
 public class Collections {
 
 	public static void main(String[] args) {
-		//override hashcode values 
-		Person p = new Person("email@email.com", "Bobbyyyy");
-		Person q = new Person("email@email.com", "Bobby");
 		
-		System.out.println(p.equals(q));
+		Item<String> item = new Item<String>();
+		item.setX("Hello");
 		
-		System.out.println(p.hashCode());
-		System.out.println(q.hashCode());
+		
+		Item<Person> item2 = new Item<Person>();
+		Person p = new Person("Hello", "Hello"); 
+		item2.setY(p);
+		
+		Person p2 = item2.getY(); 
+		
+		
 	}
 }
