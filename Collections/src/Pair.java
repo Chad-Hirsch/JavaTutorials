@@ -1,7 +1,7 @@
 
-public class Item <T> {
+public class Pair <T, U> {
 	private T x; 
-	private T y;
+	private U y;
 	
 	public T getX() {
 		return x;
@@ -9,12 +9,14 @@ public class Item <T> {
 	public void setX(T x) {
 		this.x = x;
 	}
-	public T getY() {
+	public U getY() {
 		return y;
 	}
-	public void setY(T y) {
+	public void setY(U y) {
 		this.y = y;
 	}
+	
+	
 	
 	
 }

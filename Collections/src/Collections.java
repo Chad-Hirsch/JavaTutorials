@@ -1,18 +1,20 @@
-
+import java.util.ArrayList;
 
 public class Collections {
 
 	public static void main(String[] args) {
 		
-		Item<String> item = new Item<String>();
-		item.setX("Hello");
-		
-		
-		Item<Person> item2 = new Item<Person>();
+		Pair<Person, Person> item = new Pair<Person, Person>();
 		Person p = new Person("Hello", "Hello"); 
-		item2.setY(p);
+		item.setX(p);
+		item.setY(p);
 		
-		Person p2 = item2.getY(); 
+		Pair<Integer, String> pair = new Pair<Integer, String>();
+		pair.setX(5);
+		pair.setY("Favorite number.");
+		
+		ArrayList<Pair> pears = new ArrayList<Pair>(); 
+		pears.add(pair); 
 		
 		
 	}
